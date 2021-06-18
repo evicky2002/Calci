@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Calci" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:editTextStyle">@style/App_EditTextStyle</item>
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+    </style>
+    x
+
+    <style name="spinnerDropDownItemStyle">
+        <item name="android:background">@color/secondaryButtonBgColor</item>
+        <item name="android:textColor">@color/spinnerTextColor</item>
+        <item name="android:radius">5dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="spinnerItemStyle">
+        <item name="android:background">@drawable/button_secondary</item>
+        <item name="android:gravity">center_horizontal|center_vertical</item>
+        <item name="android:textColor">@color/spinnerTextColor</item>
+
+    </style>
+
+    <style name="App_EditTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:background">@drawable/edittext_bg</item>
+        <item name="android:textColor">@color/editTextColor</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_height">45dip</item>
+        <item name="android:textColorHint">@color/editTextHintColor</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Theme.Calci.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>

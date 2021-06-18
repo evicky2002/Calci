@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textViewColor">#e9ecef</color>
+    <color name="textViewColorTwo">#0B0F16</color>
+
+    <color name="brightRed">#ED5872</color>
+
+    <color name="editTextColor">#0B0F16</color>
+    <color name="editTextBgColor">#EDF2F4</color>
+    <color name="editTextHintColor">#b3b3b3</color>
+
+    <color name="statusBarColor">#181818</color>
+
+    <color name="primaryColor">#181818</color>
+    <color name="secondaryColor">#faf9f9</color>
+
+    <color name="primaryButtonBgColor">#EDF2F4</color>
+    <color name="primaryButtonTextColor">#212529</color>
+
+    <color name="navHeaderTextColor">#ffffff</color>
+    <color name="navHeaderColor">#6467FE</color>
+
+
+
+    <color name="secondaryButtonBgColor">#6888BF</color>
+    <color name="secondaryButtonTextColor">#e6e6e6</color>
+
+    <color name="spinnerBgColor">#6888BF</color>
+    <color name="spinnerTextColor">#e6e6e6</color>
+
+    <color name="containerColor">#282828</color>
+
+    <color name="cardColor">#282828</color>
+
+    <color name="profileCardColor">#282828</color>
+
+    <color name="semesterCardColor">#525252</color>
+    <color name="semesterCardFillColor">#6467FE</color>
+    <color name="semesterCardTextColor">#FFFFFF</color>
+
+    <color name="toastBgColor">#ED5872</color>
+    <color name="toastTextColor">#ffffff</color>
+
+    <color name="switchThumbColor">#6467FE</color>
+    <color name="switchTrackColor">#2A2C70</color>
+
+
+
+</resources>

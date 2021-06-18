@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainActivity">
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.vigneshelumalai.calci.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main">
+        <action
+            android:id="@+id/action_mainActivity_to_secondActivity"
+            app:destination="@id/secondActivity"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/from_right" />
+    </activity>
+    <activity
+        android:id="@+id/secondActivity"
+        android:name="com.vigneshelumalai.calci.SecondActivity"
+        android:label="activity_second"
+        tools:layout="@layout/activity_second">
+        <action
+            android:id="@+id/action_secondActivity_to_thirdActivity"
+            app:destination="@id/thirdActivity"
+            app:enterAnim="@anim/from_left"
+            />
+        <action
+            android:id="@+id/action_secondActivity_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:exitAnim="@anim/from_right"/>
+    </activity>
+    <activity
+        android:id="@+id/thirdActivity"
+        android:name="com.vigneshelumalai.calci.ThirdActivity"
+        android:label="activity_third"
+        tools:layout="@layout/activity_third">
+        <action
+            android:id="@+id/action_thirdActivity_to_secondActivity"
+            app:destination="@id/secondActivity"
+            app:launchSingleTop="true"
+            app:enterAnim="@anim/from_left"/>
+            app:exitAnim="@anim/from_right"/>
+    </activity>
+</navigation>

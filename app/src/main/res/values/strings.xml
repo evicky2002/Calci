@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">CGPA Calculator</string>
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string-array name="grades_array">
+        <item>O</item>
+        <item>A+</item>
+        <item>A</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>U</item>
+    </string-array>
+    <string-array name="dept_array">
+        <item>CSE</item>
+        <item>ECE</item>
+        <item>EEE</item>
+        <item>Mech</item>
+    </string-array>
+
+    <string name="Calci">
+        <font color="#0B0F16">Cal</font><font color="#ED5872">c</font><font color="#0B0F16">i</font>
+    </string>
+
+    <string name="your_cgpa_is">
+        <font color="#0B0F16">Your</font>
+        <font color="#8D99AE">CGPA</font>
+        <font color="#0B0F16">is</font>
+    </string>
+    <string name="enter_your_department">
+        <font color="#0B0F16">Select</font><font color="#0B0F16"> Your</font>
+        <font color="#8D99AE">Department</font>
+    </string>
+</resources>

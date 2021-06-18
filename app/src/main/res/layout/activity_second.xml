@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryColor"
+    tools:context=".SecondActivity">
+
+    <TextView
+        android:id="@+id/tvSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/viga"
+        android:text="@string/your_cgpa_is"
+        android:textColor="@color/secondaryColor"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvCGPA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/viga"
+        android:text="value"
+        android:textColor="@color/brightRed"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvSubject"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout11"
+        android:layout_width="325dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/layout_design"
+        android:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubject">
+
+        <TextView
+            android:id="@+id/tvSub1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/viga"
+            android:text="Semester 1"
+            android:textColor="@color/textViewColor"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSem1"
+            android:layout_width="109dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="28dp"
+            android:background="@drawable/button_secondary"
+            android:fontFamily="@font/viga"
+            android:text="Find"
+            android:textColor="@color/secondaryButtonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSub1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.533" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSem1"
+            style="@style/App_EditTextStyle"
+            android:layout_width="51dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:fontFamily="@font/viga"
+            android:hint="GPA"
+            android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSem1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="325dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="74dp"
+        android:elevation="3dp"
+        android:background="@drawable/layout_design"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubject">
+
+        <TextView
+            android:id="@+id/tvSem2"
+            android:textColor="@color/textViewColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/viga"
+            android:text="Semester 2"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSem2"
+            android:background="@drawable/button_secondary"
+            android:layout_width="109dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="25dp"
+            android:text="Find"
+            android:fontFamily="@font/viga"
+            android:textColor="@color/secondaryButtonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSem2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSem2"
+            style="@style/App_EditTextStyle"
+            android:layout_width="51dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:fontFamily="@font/viga"
+            android:hint="GPA"
+            android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSem2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="325dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/layout_design"
+        android:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubject">
+
+        <TextView
+            android:id="@+id/tvSem3"
+            android:textColor="@color/textViewColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/viga"
+            android:text="Semester 3"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSem3"
+            android:background="@drawable/button_secondary"
+            android:layout_width="109dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="25dp"
+            android:fontFamily="@font/viga"
+            android:text="Find"
+            android:textColor="@color/secondaryButtonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSem3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSem3"
+            style="@style/App_EditTextStyle"
+            android:layout_width="51dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:fontFamily="@font/viga"
+            android:hint="GPA"
+            android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSem3"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="325dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="206dp"
+        android:elevation="3dp"
+        android:background="@drawable/layout_design"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubject">
+
+        <TextView
+            android:id="@+id/tvSem4"
+            android:textColor="@color/textViewColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/viga"
+            android:text="Semester 4"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSem4"
+            android:background="@drawable/button_secondary"
+            android:layout_width="109dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="25dp"
+            android:text="Find"
+            android:fontFamily="@font/viga"
+            android:textColor="@color/secondaryButtonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSem4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSem4"
+            style="@style/App_EditTextStyle"
+            android:layout_width="51dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:hint="GPA"
+            android:fontFamily="@font/viga"
+            android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSem4"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="325dp"
+        android:layout_height="58dp"
+        android:elevation="3dp"
+        android:layout_marginTop="272dp"
+        android:background="@drawable/layout_design"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubject">
+
+        <TextView
+            android:id="@+id/tvSem5"
+            android:textColor="@color/textViewColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/viga"
+            android:text="Semester 5"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSem5"
+            android:background="@drawable/button_secondary"
+            android:layout_width="109dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="25dp"
+            android:text="Find"
+            android:textColor="@color/secondaryButtonTextColor"
+            android:fontFamily="@font/viga"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSem5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSem5"
+            style="@style/App_EditTextStyle"
+            android:layout_width="51dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:fontFamily="@font/viga"
+            android:hint="GPA"
+            android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSem5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="325dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="338dp"
+        android:elevation="3dp"
+        android:background="@drawable/layout_design"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubject">
+
+        <TextView
+            android:id="@+id/tvSem6"
+            android:textColor="@color/textViewColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/viga"
+            android:text="Semester 6"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSem6"
+            android:background="@drawable/button_secondary"
+            android:layout_width="109dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="25dp"
+            android:fontFamily="@font/viga"
+            android:text="Find"
+            android:textColor="@color/secondaryButtonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSem6"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSem6"
+            style="@style/App_EditTextStyle"
+            android:layout_width="51dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:fontFamily="@font/viga"
+            android:hint="GPA"
+            android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSem6"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout12"
+        android:layout_width="325dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="404dp"
+        android:background="@drawable/layout_design"
+        android:elevation="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubject">
+
+        <TextView
+            android:id="@+id/tvSem7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/viga"
+            android:text="Semester 7"
+            android:textColor="@color/textViewColor"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSem7"
+            android:layout_width="109dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/button_secondary"
+            android:fontFamily="@font/viga"
+            android:text="Find"
+            android:textColor="@color/secondaryButtonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSem7"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSem7"
+            style="@style/App_EditTextStyle"
+            android:layout_width="51dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:fontFamily="@font/viga"
+            android:hint="GPA"
+            android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSem7"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="325dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="470dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/layout_design"
+        android:elevation="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubject"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/tvSem8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/viga"
+            android:text="Semester 8"
+            android:textColor="@color/textViewColor"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSem8"
+            android:layout_width="109dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/button_secondary"
+            android:elevation="50dp"
+            android:fontFamily="@font/viga"
+            android:text="Find"
+            android:textColor="@color/secondaryButtonTextColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvSem8"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSem8"
+            style="@style/App_EditTextStyle"
+            android:layout_width="51dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:fontFamily="@font/viga"
+            android:hint="GPA"
+            android:inputType="numberDecimal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnSem8"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="-20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/star" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCGPA"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_secondary"
+        android:fontFamily="@font/viga"
+        android:text="CALCULATE CGPA"
+        android:textColor="@color/secondaryButtonTextColor"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.009" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSaveActivitySecond"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_toast"
+        android:fontFamily="@font/viga"
+        android:text="Save"
+        android:elevation="3dp"
+        android:textColor="@color/toastTextColor"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toEndOf="@+id/btnCGPA"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
