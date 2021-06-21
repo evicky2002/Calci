@@ -103,6 +103,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                                 etSem6.getText().toString().trim().length() > 0 ||
                                 etSem7.getText().toString().trim().length() > 0 ||
                                 etSem8.getText().toString().trim().length() > 0)) {
+                    Log.i("checkfor","I'm at th top");
                     tvToastMessage.setText("Enter values in order");
                     toast.show();
                     tvCGPA.setVisibility(View.INVISIBLE);
@@ -116,181 +117,240 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                         etSem7.getText().toString().trim().length() > 0 ||
                         etSem8.getText().toString().trim().length() > 0) {
                     if (etSem1.getText().toString().trim().length() > 0) {
-                        if (etSem3.getText().toString().trim().length() > 0 ||
-                                etSem4.getText().toString().trim().length() > 0 ||
-                                etSem5.getText().toString().trim().length() > 0 ||
-                                etSem6.getText().toString().trim().length() > 0 ||
-                                etSem7.getText().toString().trim().length() > 0 ||
-                                etSem8.getText().toString().trim().length() > 0) {
+                        if (etSem2.getText().toString().trim().isEmpty() &&(
+                                etSem3.getText().toString().trim().length() > 0 ||
+                                        etSem4.getText().toString().trim().length() > 0 ||
+                                        etSem5.getText().toString().trim().length() > 0 ||
+                                        etSem6.getText().toString().trim().length() > 0 ||
+                                        etSem7.getText().toString().trim().length() > 0 ||
+                                        etSem8.getText().toString().trim().length() > 0
+                                )
+                        ) {
+                            Log.i("checkfor","I'm at the 1");
                             tvToastMessage.setText("Enter values in order");
                             toast.show();
                             tvCGPA.setVisibility(View.INVISIBLE);
                             btnSaveSecondActivity.setVisibility(View.INVISIBLE);
                         } else {
-                            btnSaveSecondActivity.setVisibility(View.VISIBLE);
-                            cgpaNum = Float.parseFloat(etSem1.getText().toString().trim());
-                            btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
-                                    editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
-                                    editor.clear();
-                                    editor.apply();
-                                    editor.putString("Sem1Value", (String.valueOf(cgpaNum)));
-                                    Float fillHeight = ((cgpaNum * 10) / 100) * 92;
-                                    Float cgpaFillHeight = ((cgpaNum * 10) / 100) * 398;
-                                    editor.putFloat("Sem1FillValue", fillHeight);
-                                    editor.putFloat("CGPAValue", cgpaNum / (float) 1);
-                                    editor.putFloat("CGPAFillValue", cgpaFillHeight);
-                                    editor.apply();
-                                    tvToastMessage.setText("Saved to Your Academics");
-                                    toast.show();
+                            if(Float.parseFloat(etSem1.getText().toString().trim())>10){
+                                tvToastMessage.setText("CGPA value can't exceed 10");
+                                toast.show();
+                                tvCGPA.setVisibility(View.INVISIBLE);
+                                btnSaveSecondActivity.setVisibility(View.INVISIBLE);
 
-                                }
-                            });
-                            cgpaNum = (float) cgpaNum / (float) 1;
+                            }else{
+                                btnSaveSecondActivity.setVisibility(View.VISIBLE);
+                                tvCGPA.setVisibility(View.VISIBLE);
+                                cgpaNum = Float.parseFloat(etSem1.getText().toString().trim());
+                                btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
+                                        editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
+                                        editor.clear();
+                                        editor.apply();
+                                        editor.putString("Sem1Value", (String.valueOf(cgpaNum)));
+                                        Float fillHeight = ((cgpaNum * 10) / 100) * 92;
+                                        Float cgpaFillHeight = ((cgpaNum * 10) / 100) * 398;
+                                        editor.putFloat("Sem1FillValue", fillHeight);
+                                        editor.putFloat("CGPAValue", cgpaNum / (float) 1);
+                                        editor.putFloat("CGPAFillValue", cgpaFillHeight);
+                                        editor.apply();
+                                        tvToastMessage.setText("Saved to Your Academics");
+                                        toast.show();
 
+                                    }
+                                });
+                                cgpaNum = (float) cgpaNum / (float) 1;
+
+
+                            }
                         }
                     }
 
                     if (etSem1.getText().toString().trim().length() > 0 &&
                             etSem2.getText().toString().trim().length() > 0) {
-                        if (etSem4.getText().toString().trim().length() > 0 ||
+                        if (etSem3.getText().toString().trim().isEmpty() &&
+                                (etSem4.getText().toString().trim().length() > 0 ||
                                 etSem5.getText().toString().trim().length() > 0 ||
                                 etSem6.getText().toString().trim().length() > 0 ||
                                 etSem7.getText().toString().trim().length() > 0 ||
-                                etSem8.getText().toString().trim().length() > 0) {
+                                etSem8.getText().toString().trim().length() > 0)
+                                ) {
+                            Log.i("checkfor","I'm at th 2");
                             tvToastMessage.setText("Enter values in order");
                             toast.show();
                             tvCGPA.setVisibility(View.INVISIBLE);
                             btnSaveSecondActivity.setVisibility(View.INVISIBLE);
                         } else {
-                            btnSaveSecondActivity.setVisibility(View.VISIBLE);
-                            Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
-                            Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
-                            cgpaNum = gpa1 + gpa2;
-                            btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
-                                    editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
-                                    editor.clear();
-                                    editor.apply();
-                                    editor.putString("Sem1Value", (String.valueOf(gpa1)));
-                                    editor.putString("Sem2Value", (String.valueOf(gpa2)));
-                                    Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
-                                    Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
-                                    Float fillCGPAHeight = ((cgpaNum * 10) / 100) * 398;
-                                    Log.i("tagme1", String.valueOf(cgpaNum));
+                            if(Float.parseFloat(etSem1.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem2.getText().toString().trim())>10){
+                                tvToastMessage.setText("CGPA value can't exceed 10");
+                                toast.show();
+                                tvCGPA.setVisibility(View.INVISIBLE);
+                                btnSaveSecondActivity.setVisibility(View.INVISIBLE);
+                            }else{
+                                btnSaveSecondActivity.setVisibility(View.VISIBLE);
+                                tvCGPA.setVisibility(View.VISIBLE);
+                                Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
+                                Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
+                                cgpaNum = gpa1 + gpa2;
+                                btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
+                                        editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
+                                        editor.clear();
+                                        editor.apply();
+                                        editor.putString("Sem1Value", (String.valueOf(gpa1)));
+                                        editor.putString("Sem2Value", (String.valueOf(gpa2)));
+                                        Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
+                                        Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
+                                        Float fillCGPAHeight = ((cgpaNum * 10) / 100) * 398;
+                                        Log.i("tagme1", String.valueOf(cgpaNum));
 
-                                    editor.putFloat("Sem1FillValue", fillHeight1);
-                                    editor.putFloat("Sem2FillValue", fillHeight2);
-                                    editor.putFloat("CGPAValue", cgpaNum);
-                                    Log.i("tagme", String.valueOf(cgpaNum));
-                                    editor.putFloat("CGPAFillValue", fillCGPAHeight);
-                                    editor.apply();
-                                    tvToastMessage.setText("Saved to Your Academics");
-                                    toast.show();
+                                        editor.putFloat("Sem1FillValue", fillHeight1);
+                                        editor.putFloat("Sem2FillValue", fillHeight2);
+                                        editor.putFloat("CGPAValue", cgpaNum);
+                                        Log.i("tagme", String.valueOf(cgpaNum));
+                                        editor.putFloat("CGPAFillValue", fillCGPAHeight);
+                                        editor.apply();
+                                        tvToastMessage.setText("Saved to Your Academics");
+                                        toast.show();
 
-                                }
-                            });
-                            Log.i("tagme", String.valueOf(cgpaNum));
-                            cgpaNum = cgpaNum / (float) 2;
+                                    }
+                                });
+                                Log.i("tagme", String.valueOf(cgpaNum));
+                                cgpaNum = cgpaNum / (float) 2;
+
+                            }
                         }
                     }
                     if (etSem1.getText().toString().trim().length() > 0 &&
                             etSem2.getText().toString().trim().length() > 0 &&
                             etSem3.getText().toString().trim().length() > 0) {
-                        if (etSem5.getText().toString().trim().length() > 0 ||
-                                etSem6.getText().toString().trim().length() > 0 ||
-                                etSem7.getText().toString().trim().length() > 0 ||
-                                etSem8.getText().toString().trim().length() > 0) {
+                        if (etSem4.getText().toString().trim().isEmpty() &&(
+                                etSem5.getText().toString().trim().length() > 0 ||
+                                        etSem6.getText().toString().trim().length() > 0 ||
+                                        etSem7.getText().toString().trim().length() > 0 ||
+                                        etSem8.getText().toString().trim().length() > 0
+                                )
+                                ) {
+                            Log.i("checkfor","I'm at the 3");
                             tvToastMessage.setText("Enter values in order");
                             toast.show();
                             tvCGPA.setVisibility(View.INVISIBLE);
                             btnSaveSecondActivity.setVisibility(View.INVISIBLE);
                         } else {
-                            btnSaveSecondActivity.setVisibility(View.VISIBLE);
-                            Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
-                            Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
-                            Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
-                            cgpaNum = +gpa1 + gpa2 + gpa3;
-                            btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
-                                    editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
-                                    editor.clear();
-                                    editor.apply();
-                                    editor.putString("Sem1Value", (String.valueOf(gpa1)));
-                                    editor.putString("Sem2Value", (String.valueOf(gpa2)));
-                                    editor.putString("Sem3Value", (String.valueOf(gpa3)));
-                                    Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
-                                    Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
-                                    Float fillHeight3 = ((gpa3 * 10) / 100) * 92;
-                                    Float cgpaFillHeight = (((cgpaNum * 10)) / 100) * 398;
-                                    editor.putFloat("Sem1FillValue", fillHeight1);
-                                    editor.putFloat("Sem2FillValue", fillHeight2);
-                                    editor.putFloat("Sem3FillValue", fillHeight3);
-                                    editor.putFloat("CGPAValue", cgpaNum);
-                                    editor.putFloat("CGPAFillValue", cgpaFillHeight);
-                                    editor.apply();
-                                    tvToastMessage.setText("Saved to Your Academics");
-                                    toast.show();
+                            if(Float.parseFloat(etSem1.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem2.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem3.getText().toString().trim())>10)
+                            {
+                                tvToastMessage.setText("CGPA value can't exceed 10");
+                                toast.show();
+                                tvCGPA.setVisibility(View.INVISIBLE);
+                                btnSaveSecondActivity.setVisibility(View.INVISIBLE);
+                            }else{
+                                btnSaveSecondActivity.setVisibility(View.VISIBLE);
+                                tvCGPA.setVisibility(View.VISIBLE);
+                                Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
+                                Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
+                                Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
+                                cgpaNum = gpa1 + gpa2 + gpa3;
+                                btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
+                                        editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
+                                        editor.clear();
+                                        editor.apply();
+                                        editor.putString("Sem1Value", (String.valueOf(gpa1)));
+                                        editor.putString("Sem2Value", (String.valueOf(gpa2)));
+                                        editor.putString("Sem3Value", (String.valueOf(gpa3)));
+                                        Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
+                                        Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
+                                        Float fillHeight3 = ((gpa3 * 10) / 100) * 92;
+                                        Float cgpaFillHeight = (((cgpaNum * 10)) / 100) * 398;
+                                        editor.putFloat("Sem1FillValue", fillHeight1);
+                                        editor.putFloat("Sem2FillValue", fillHeight2);
+                                        editor.putFloat("Sem3FillValue", fillHeight3);
+                                        editor.putFloat("CGPAValue", cgpaNum);
+                                        editor.putFloat("CGPAFillValue", cgpaFillHeight);
+                                        editor.apply();
+                                        tvToastMessage.setText("Saved to Your Academics");
+                                        toast.show();
 
-                                }
-                            });
-                            cgpaNum = cgpaNum / (float) 3;
+                                    }
+                                });
+                                cgpaNum = cgpaNum / (float) 3;
+
+                            }
                         }
                     }
                     if (etSem1.getText().toString().trim().length() > 0 &&
                             etSem2.getText().toString().trim().length() > 0 &&
                             etSem3.getText().toString().trim().length() > 0 &&
                             etSem4.getText().toString().trim().length() > 0) {
-                        if (etSem6.getText().toString().trim().length() > 0 ||
-                                etSem7.getText().toString().trim().length() > 0 ||
-                                etSem8.getText().toString().trim().length() > 0) {
+                        if (etSem5.getText().toString().trim().isEmpty() &&(
+                                etSem6.getText().toString().trim().length() > 0 ||
+                                        etSem7.getText().toString().trim().length() > 0 ||
+                                        etSem8.getText().toString().trim().length() > 0
+                                )
+                                ) {
+                            Log.i("checkfor","I'm at th 4");
                             tvToastMessage.setText("Enter values in order");
                             toast.show();
                             tvCGPA.setVisibility(View.INVISIBLE);
                             btnSaveSecondActivity.setVisibility(View.INVISIBLE);
                         } else {
-                            btnSaveSecondActivity.setVisibility(View.VISIBLE);
-                            Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
-                            Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
-                            Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
-                            Float gpa4 = Float.parseFloat(etSem4.getText().toString().trim());
-                            cgpaNum = +gpa1 + gpa2 + gpa3 + gpa4;
-                            btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
-                                    editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
-                                    editor.clear();
-                                    editor.apply();
-                                    editor.putString("Sem1Value", (String.valueOf(gpa1)));
-                                    editor.putString("Sem2Value", (String.valueOf(gpa2)));
-                                    editor.putString("Sem3Value", (String.valueOf(gpa3)));
-                                    editor.putString("Sem4Value", (String.valueOf(gpa4)));
-                                    Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
-                                    Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
-                                    Float fillHeight3 = ((gpa3 * 10) / 100) * 92;
-                                    Float fillHeight4 = ((gpa4 * 10) / 100) * 92;
-                                    Float cgpaFillHeight = ((cgpaNum * 10) / 100) * 398;
-                                    editor.putFloat("Sem1FillValue", fillHeight1);
-                                    editor.putFloat("Sem2FillValue", fillHeight2);
-                                    editor.putFloat("Sem3FillValue", fillHeight3);
-                                    editor.putFloat("Sem4FillValue", fillHeight4);
-                                    editor.putFloat("CGPAValue", cgpaNum);
-                                    editor.putFloat("CGPAFillValue", cgpaFillHeight);
-                                    editor.apply();
-                                    tvToastMessage.setText("Saved to Your Academics");
-                                    toast.show();
+                            if(Float.parseFloat(etSem1.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem2.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem3.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem4.getText().toString().trim())>10){
+                                tvToastMessage.setText("CGPA value can't exceed 10");
+                                toast.show();
+                                tvCGPA.setVisibility(View.INVISIBLE);
+                                btnSaveSecondActivity.setVisibility(View.INVISIBLE);
+                            }else{
+                                btnSaveSecondActivity.setVisibility(View.VISIBLE);
+                                tvCGPA.setVisibility(View.VISIBLE);
+                                Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
+                                Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
+                                Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
+                                Float gpa4 = Float.parseFloat(etSem4.getText().toString().trim());
+                                cgpaNum =gpa1 + gpa2 + gpa3 + gpa4;
+                                btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
+                                        editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
+                                        editor.clear();
+                                        editor.apply();
+                                        editor.putString("Sem1Value", (String.valueOf(gpa1)));
+                                        editor.putString("Sem2Value", (String.valueOf(gpa2)));
+                                        editor.putString("Sem3Value", (String.valueOf(gpa3)));
+                                        editor.putString("Sem4Value", (String.valueOf(gpa4)));
+                                        Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
+                                        Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
+                                        Float fillHeight3 = ((gpa3 * 10) / 100) * 92;
+                                        Float fillHeight4 = ((gpa4 * 10) / 100) * 92;
+                                        Float cgpaFillHeight = ((cgpaNum * 10) / 100) * 398;
+                                        editor.putFloat("Sem1FillValue", fillHeight1);
+                                        editor.putFloat("Sem2FillValue", fillHeight2);
+                                        editor.putFloat("Sem3FillValue", fillHeight3);
+                                        editor.putFloat("Sem4FillValue", fillHeight4);
+                                        editor.putFloat("CGPAValue", cgpaNum);
+                                        editor.putFloat("CGPAFillValue", cgpaFillHeight);
+                                        editor.apply();
+                                        tvToastMessage.setText("Saved to Your Academics");
+                                        toast.show();
 
-                                }
-                            });
+                                    }
+                                });
 
-                            cgpaNum = cgpaNum / (float) 4;
+                                cgpaNum = cgpaNum / (float) 4;
+
+                            }
                         }
                     }
                     if (etSem1.getText().toString().trim().length() > 0 &&
@@ -298,52 +358,70 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                             etSem3.getText().toString().trim().length() > 0 &&
                             etSem4.getText().toString().trim().length() > 0 &&
                             etSem5.getText().toString().trim().length() > 0) {
-                        if (etSem7.getText().toString().trim().length() > 0 ||
-                                etSem8.getText().toString().trim().length() > 0) {
+                        if (etSem6.getText().toString().trim().isEmpty() &&(
+                                etSem7.getText().toString().trim().length() > 0 ||
+                                        etSem8.getText().toString().trim().length() > 0
+                                )
+                                ) {
+                            Log.i("checkfor","I'm at th 5");
                             tvToastMessage.setText("Enter values in order");
                             toast.show();
                             tvCGPA.setVisibility(View.INVISIBLE);
                             btnSaveSecondActivity.setVisibility(View.INVISIBLE);
                         } else {
-                            btnSaveSecondActivity.setVisibility(View.VISIBLE);
-                            Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
-                            Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
-                            Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
-                            Float gpa4 = Float.parseFloat(etSem4.getText().toString().trim());
-                            Float gpa5 = Float.parseFloat(etSem5.getText().toString().trim());
-                            cgpaNum = +gpa1 + gpa2 + gpa3 + gpa4 + gpa5;
-                            btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
-                                    editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
-                                    editor.clear();
-                                    editor.apply();
-                                    editor.putString("Sem1Value", (String.valueOf(gpa1)));
-                                    editor.putString("Sem2Value", (String.valueOf(gpa2)));
-                                    editor.putString("Sem3Value", (String.valueOf(gpa3)));
-                                    editor.putString("Sem4Value", (String.valueOf(gpa4)));
-                                    editor.putString("Sem5Value", (String.valueOf(gpa5)));
-                                    Float fillHeight1 = ((cgpaNum * 10) / 100) * 92;
-                                    Float fillHeight2 = ((cgpaNum * 10) / 100) * 92;
-                                    Float fillHeight3 = ((cgpaNum * 10) / 100) * 92;
-                                    Float fillHeight4 = ((cgpaNum * 10) / 100) * 92;
-                                    Float fillHeight5 = ((cgpaNum * 10) / 100) * 92;
-                                    Float cgpaFillHeight = (((cgpaNum * 10)) / 100) * 398;
-                                    editor.putFloat("Sem1FillValue", fillHeight1);
-                                    editor.putFloat("Sem2FillValue", fillHeight2);
-                                    editor.putFloat("Sem3FillValue", fillHeight3);
-                                    editor.putFloat("Sem4FillValue", fillHeight4);
-                                    editor.putFloat("Sem5FillValue", fillHeight5);
-                                    editor.putFloat("CGPAValue", cgpaNum);
-                                    editor.putFloat("CGPAFillValue", cgpaFillHeight);
-                                    editor.apply();
-                                    tvToastMessage.setText("Saved to Your Academics");
-                                    toast.show();
+                            if(Float.parseFloat(etSem1.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem2.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem3.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem4.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem5.getText().toString().trim())>10){
+                                tvToastMessage.setText("CGPA value can't exceed 10");
+                                toast.show();
+                                tvCGPA.setVisibility(View.INVISIBLE);
+                                btnSaveSecondActivity.setVisibility(View.INVISIBLE);
 
-                                }
-                            });
-                            cgpaNum = cgpaNum / (float) 5;
+                            }else{
+                                btnSaveSecondActivity.setVisibility(View.VISIBLE);
+                                tvCGPA.setVisibility(View.VISIBLE);
+                                Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
+                                Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
+                                Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
+                                Float gpa4 = Float.parseFloat(etSem4.getText().toString().trim());
+                                Float gpa5 = Float.parseFloat(etSem5.getText().toString().trim());
+                                cgpaNum = gpa1 + gpa2 + gpa3 + gpa4 + gpa5;
+                                btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
+                                        editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
+                                        editor.clear();
+                                        editor.apply();
+                                        editor.putString("Sem1Value", (String.valueOf(gpa1)));
+                                        editor.putString("Sem2Value", (String.valueOf(gpa2)));
+                                        editor.putString("Sem3Value", (String.valueOf(gpa3)));
+                                        editor.putString("Sem4Value", (String.valueOf(gpa4)));
+                                        editor.putString("Sem5Value", (String.valueOf(gpa5)));
+                                        Float fillHeight1 = ((cgpaNum * 10) / 100) * 92;
+                                        Float fillHeight2 = ((cgpaNum * 10) / 100) * 92;
+                                        Float fillHeight3 = ((cgpaNum * 10) / 100) * 92;
+                                        Float fillHeight4 = ((cgpaNum * 10) / 100) * 92;
+                                        Float fillHeight5 = ((cgpaNum * 10) / 100) * 92;
+                                        Float cgpaFillHeight = (((cgpaNum * 10)) / 100) * 398;
+                                        editor.putFloat("Sem1FillValue", fillHeight1);
+                                        editor.putFloat("Sem2FillValue", fillHeight2);
+                                        editor.putFloat("Sem3FillValue", fillHeight3);
+                                        editor.putFloat("Sem4FillValue", fillHeight4);
+                                        editor.putFloat("Sem5FillValue", fillHeight5);
+                                        editor.putFloat("CGPAValue", cgpaNum);
+                                        editor.putFloat("CGPAFillValue", cgpaFillHeight);
+                                        editor.apply();
+                                        tvToastMessage.setText("Saved to Your Academics");
+                                        toast.show();
+
+                                    }
+                                });
+                                cgpaNum = cgpaNum / (float) 5;
+
+                            }
                         }
                     }
                     if (etSem1.getText().toString().trim().length() > 0 &&
@@ -353,19 +431,177 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                             etSem5.getText().toString().trim().length() > 0 &&
                             etSem6.getText().toString().trim().length() > 0) {
                         if (etSem8.getText().toString().trim().length() > 0) {
+                            Log.i("checkfor","I'm at th 6");
                             tvToastMessage.setText("Enter values in order");
                             toast.show();
                             tvCGPA.setVisibility(View.INVISIBLE);
                             btnSaveSecondActivity.setVisibility(View.INVISIBLE);
                         } else {
+                            if(Float.parseFloat(etSem1.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem2.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem3.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem4.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem5.getText().toString().trim())>10||
+                                    Float.parseFloat(etSem6.getText().toString().trim())>10){
+                                tvToastMessage.setText("CGPA value can't exceed 10");
+                                toast.show();
+                                tvCGPA.setVisibility(View.INVISIBLE);
+                                btnSaveSecondActivity.setVisibility(View.INVISIBLE);
+
+                            }else{
+                                btnSaveSecondActivity.setVisibility(View.VISIBLE);
+                                tvCGPA.setVisibility(View.VISIBLE);
+                                Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
+                                Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
+                                Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
+                                Float gpa4 = Float.parseFloat(etSem4.getText().toString().trim());
+                                Float gpa5 = Float.parseFloat(etSem5.getText().toString().trim());
+                                Float gpa6 = Float.parseFloat(etSem6.getText().toString().trim());
+                                cgpaNum = gpa1 + gpa2 + gpa3 + gpa4 + gpa5 + gpa6;
+                                btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
+                                        editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
+                                        editor.clear();
+                                        editor.apply();
+                                        editor.putString("Sem1Value", (String.valueOf(gpa1)));
+                                        editor.putString("Sem2Value", (String.valueOf(gpa2)));
+                                        editor.putString("Sem3Value", (String.valueOf(gpa3)));
+                                        editor.putString("Sem4Value", (String.valueOf(gpa4)));
+                                        editor.putString("Sem5Value", (String.valueOf(gpa5)));
+                                        editor.putString("Sem6Value", (String.valueOf(gpa6)));
+                                        Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
+                                        Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
+                                        Float fillHeight3 = ((gpa3 * 10) / 100) * 92;
+                                        Float fillHeight4 = ((gpa4 * 10) / 100) * 92;
+                                        Float fillHeight5 = ((gpa5 * 10) / 100) * 92;
+                                        Float fillHeight6 = ((gpa6 * 10) / 100) * 92;
+                                        Float cgpaFillHeight = (((cgpaNum * 10)) / 100) * 398;
+                                        editor.putFloat("Sem1FillValue", fillHeight1);
+                                        editor.putFloat("Sem2FillValue", fillHeight2);
+                                        editor.putFloat("Sem3FillValue", fillHeight3);
+                                        editor.putFloat("Sem4FillValue", fillHeight4);
+                                        editor.putFloat("Sem5FillValue", fillHeight5);
+                                        editor.putFloat("Sem6FillValue", fillHeight6);
+                                        editor.putFloat("CGPAValue", cgpaNum);
+                                        editor.putFloat("CGPAFillValue", cgpaFillHeight);
+                                        editor.apply();
+                                        tvToastMessage.setText("Saved to Your Academics");
+                                        toast.show();
+
+                                    }
+                                });
+                                cgpaNum = cgpaNum / (float) 6;
+
+                            }
+                        }
+                    }
+                    if (etSem1.getText().toString().trim().length() > 0 &&
+                            etSem2.getText().toString().trim().length() > 0 &&
+                            etSem3.getText().toString().trim().length() > 0 &&
+                            etSem4.getText().toString().trim().length() > 0 &&
+                            etSem5.getText().toString().trim().length() > 0 &&
+                            etSem6.getText().toString().trim().length() > 0 &&
+                            etSem7.getText().toString().trim().length() > 0) {
+                        if(Float.parseFloat(etSem1.getText().toString().trim())>10||
+                                Float.parseFloat(etSem2.getText().toString().trim())>10||
+                                Float.parseFloat(etSem3.getText().toString().trim())>10||
+                                Float.parseFloat(etSem4.getText().toString().trim())>10||
+                                Float.parseFloat(etSem5.getText().toString().trim())>10||
+                                Float.parseFloat(etSem6.getText().toString().trim())>10||
+                                Float.parseFloat(etSem7.getText().toString().trim())>10){
+                            tvToastMessage.setText("CGPA value can't exceed 10");
+                            toast.show();
+                            tvCGPA.setVisibility(View.INVISIBLE);
+                            btnSaveSecondActivity.setVisibility(View.INVISIBLE);
+
+                        }else{
                             btnSaveSecondActivity.setVisibility(View.VISIBLE);
+                            tvCGPA.setVisibility(View.VISIBLE);
                             Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
                             Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
                             Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
                             Float gpa4 = Float.parseFloat(etSem4.getText().toString().trim());
                             Float gpa5 = Float.parseFloat(etSem5.getText().toString().trim());
                             Float gpa6 = Float.parseFloat(etSem6.getText().toString().trim());
-                            cgpaNum = +gpa1 + gpa2 + gpa3 + gpa4 + gpa5 + gpa6;
+                            Float gpa7 = Float.parseFloat(etSem7.getText().toString().trim());
+                            cgpaNum = gpa1 + gpa2 + gpa3 + gpa4 + gpa5 + gpa6 + gpa7;
+                            btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
+                                    editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
+                                    editor.clear();
+                                    editor.apply();
+
+                                    editor.putString("Sem1Value", (String.valueOf(gpa1)));
+                                    editor.putString("Sem2Value", (String.valueOf(gpa2)));
+                                    editor.putString("Sem3Value", (String.valueOf(gpa3)));
+                                    editor.putString("Sem4Value", (String.valueOf(gpa4)));
+                                    editor.putString("Sem5Value", (String.valueOf(gpa5)));
+                                    editor.putString("Sem6Value", (String.valueOf(gpa6)));
+                                    editor.putString("Sem7Value", (String.valueOf(gpa7)));
+                                    Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
+                                    Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
+                                    Float fillHeight3 = ((gpa3 * 10) / 100) * 92;
+                                    Float fillHeight4 = ((gpa4 * 10) / 100) * 92;
+                                    Float fillHeight5 = ((gpa5 * 10) / 100) * 92;
+                                    Float fillHeight6 = ((gpa6 * 10) / 100) * 92;
+                                    Float fillHeight7 = ((gpa7 * 10) / 100) * 92;
+                                    Float cgpaFillHeight = (((gpa1 * 10)) / 100) * 398;
+                                    editor.putFloat("Sem1FillValue", fillHeight1);
+                                    editor.putFloat("Sem2FillValue", fillHeight2);
+                                    editor.putFloat("Sem3FillValue", fillHeight3);
+                                    editor.putFloat("Sem4FillValue", fillHeight4);
+                                    editor.putFloat("Sem5FillValue", fillHeight5);
+                                    editor.putFloat("Sem6FillValue", fillHeight6);
+                                    editor.putFloat("Sem7FillValue", fillHeight7);
+                                    editor.putFloat("CGPAValue", cgpaNum);
+                                    editor.putFloat("CGPAFillValue", cgpaFillHeight);
+                                    editor.apply();
+                                    tvToastMessage.setText("Saved to Your Academics");
+                                    toast.show();
+
+                                }
+                            });
+                            cgpaNum = cgpaNum / (float) 7;
+
+                        }
+                    }
+                    if (etSem1.getText().toString().trim().length() > 0 &&
+                            etSem2.getText().toString().trim().length() > 0 &&
+                            etSem3.getText().toString().trim().length() > 0 &&
+                            etSem4.getText().toString().trim().length() > 0 &&
+                            etSem5.getText().toString().trim().length() > 0 &&
+                            etSem6.getText().toString().trim().length() > 0 &&
+                            etSem7.getText().toString().trim().length() > 0 &&
+                            etSem8.getText().toString().trim().length() > 0) {
+                        if(Float.parseFloat(etSem1.getText().toString().trim())>10||
+                                Float.parseFloat(etSem2.getText().toString().trim())>10||
+                                Float.parseFloat(etSem3.getText().toString().trim())>10||
+                                Float.parseFloat(etSem4.getText().toString().trim())>10||
+                                Float.parseFloat(etSem5.getText().toString().trim())>10||
+                                Float.parseFloat(etSem6.getText().toString().trim())>10||
+                                Float.parseFloat(etSem7.getText().toString().trim())>10||
+                                Float.parseFloat(etSem8.getText().toString().trim())>10){
+                            tvToastMessage.setText("CGPA value can't exceed 10");
+                            toast.show();
+                            tvCGPA.setVisibility(View.INVISIBLE);
+                            btnSaveSecondActivity.setVisibility(View.INVISIBLE);
+
+                        }else{
+                            btnSaveSecondActivity.setVisibility(View.VISIBLE);
+                            tvCGPA.setVisibility(View.VISIBLE);
+                            Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
+                            Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
+                            Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
+                            Float gpa4 = Float.parseFloat(etSem4.getText().toString().trim());
+                            Float gpa5 = Float.parseFloat(etSem5.getText().toString().trim());
+                            Float gpa6 = Float.parseFloat(etSem6.getText().toString().trim());
+                            Float gpa7 = Float.parseFloat(etSem7.getText().toString().trim());
+                            Float gpa8 = Float.parseFloat(etSem7.getText().toString().trim());
+                            cgpaNum = gpa1 + gpa2 + gpa3 + gpa4 + gpa5 + gpa6 + gpa7 + gpa8;
                             btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -379,12 +615,16 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                                     editor.putString("Sem4Value", (String.valueOf(gpa4)));
                                     editor.putString("Sem5Value", (String.valueOf(gpa5)));
                                     editor.putString("Sem6Value", (String.valueOf(gpa6)));
+                                    editor.putString("Sem7Value", (String.valueOf(gpa7)));
+                                    editor.putString("Sem8Value", (String.valueOf(gpa8)));
                                     Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
                                     Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
                                     Float fillHeight3 = ((gpa3 * 10) / 100) * 92;
                                     Float fillHeight4 = ((gpa4 * 10) / 100) * 92;
                                     Float fillHeight5 = ((gpa5 * 10) / 100) * 92;
                                     Float fillHeight6 = ((gpa6 * 10) / 100) * 92;
+                                    Float fillHeight7 = ((gpa7 * 10) / 100) * 92;
+                                    Float fillHeight8 = ((gpa8 * 10) / 100) * 92;
                                     Float cgpaFillHeight = (((cgpaNum * 10)) / 100) * 398;
                                     editor.putFloat("Sem1FillValue", fillHeight1);
                                     editor.putFloat("Sem2FillValue", fillHeight2);
@@ -392,6 +632,8 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                                     editor.putFloat("Sem4FillValue", fillHeight4);
                                     editor.putFloat("Sem5FillValue", fillHeight5);
                                     editor.putFloat("Sem6FillValue", fillHeight6);
+                                    editor.putFloat("Sem7FillValue", fillHeight7);
+                                    editor.putFloat("Sem8FillValue", fillHeight8);
                                     editor.putFloat("CGPAValue", cgpaNum);
                                     editor.putFloat("CGPAFillValue", cgpaFillHeight);
                                     editor.apply();
@@ -400,131 +642,13 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
                                 }
                             });
-                            cgpaNum = cgpaNum / (float) 6;
+                            cgpaNum = cgpaNum / (float) 8;
+
                         }
-                    }
-                    if (etSem1.getText().toString().trim().length() > 0 &&
-                            etSem2.getText().toString().trim().length() > 0 &&
-                            etSem3.getText().toString().trim().length() > 0 &&
-                            etSem4.getText().toString().trim().length() > 0 &&
-                            etSem5.getText().toString().trim().length() > 0 &&
-                            etSem6.getText().toString().trim().length() > 0 &&
-                            etSem7.getText().toString().trim().length() > 0) {
-                        btnSaveSecondActivity.setVisibility(View.VISIBLE);
-                        Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
-                        Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
-                        Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
-                        Float gpa4 = Float.parseFloat(etSem4.getText().toString().trim());
-                        Float gpa5 = Float.parseFloat(etSem5.getText().toString().trim());
-                        Float gpa6 = Float.parseFloat(etSem6.getText().toString().trim());
-                        Float gpa7 = Float.parseFloat(etSem7.getText().toString().trim());
-                        cgpaNum = +gpa1 + gpa2 + gpa3 + gpa4 + gpa5 + gpa6 + gpa7;
-                        btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
-                                editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
-                                editor.clear();
-                                editor.apply();
-
-                                editor.putString("Sem1Value", (String.valueOf(gpa1)));
-                                editor.putString("Sem2Value", (String.valueOf(gpa2)));
-                                editor.putString("Sem3Value", (String.valueOf(gpa3)));
-                                editor.putString("Sem4Value", (String.valueOf(gpa4)));
-                                editor.putString("Sem5Value", (String.valueOf(gpa5)));
-                                editor.putString("Sem6Value", (String.valueOf(gpa6)));
-                                editor.putString("Sem7Value", (String.valueOf(gpa7)));
-                                Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
-                                Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
-                                Float fillHeight3 = ((gpa3 * 10) / 100) * 92;
-                                Float fillHeight4 = ((gpa4 * 10) / 100) * 92;
-                                Float fillHeight5 = ((gpa5 * 10) / 100) * 92;
-                                Float fillHeight6 = ((gpa6 * 10) / 100) * 92;
-                                Float fillHeight7 = ((gpa7 * 10) / 100) * 92;
-                                Float cgpaFillHeight = (((gpa1 * 10)) / 100) * 398;
-                                editor.putFloat("Sem1FillValue", fillHeight1);
-                                editor.putFloat("Sem2FillValue", fillHeight2);
-                                editor.putFloat("Sem3FillValue", fillHeight3);
-                                editor.putFloat("Sem4FillValue", fillHeight4);
-                                editor.putFloat("Sem5FillValue", fillHeight5);
-                                editor.putFloat("Sem6FillValue", fillHeight6);
-                                editor.putFloat("Sem7FillValue", fillHeight7);
-                                editor.putFloat("CGPAValue", cgpaNum);
-                                editor.putFloat("CGPAFillValue", cgpaFillHeight);
-                                editor.apply();
-                                tvToastMessage.setText("Saved to Your Academics");
-                                toast.show();
-
-                            }
-                        });
-                        cgpaNum = cgpaNum / (float) 7;
-                    }
-                    if (etSem1.getText().toString().trim().length() > 0 &&
-                            etSem2.getText().toString().trim().length() > 0 &&
-                            etSem3.getText().toString().trim().length() > 0 &&
-                            etSem4.getText().toString().trim().length() > 0 &&
-                            etSem5.getText().toString().trim().length() > 0 &&
-                            etSem6.getText().toString().trim().length() > 0 &&
-                            etSem7.getText().toString().trim().length() > 0 &&
-                            etSem8.getText().toString().trim().length() > 0) {
-                        btnSaveSecondActivity.setVisibility(View.VISIBLE);
-                        Float gpa1 = Float.parseFloat(etSem1.getText().toString().trim());
-                        Float gpa2 = Float.parseFloat(etSem2.getText().toString().trim());
-                        Float gpa3 = Float.parseFloat(etSem3.getText().toString().trim());
-                        Float gpa4 = Float.parseFloat(etSem4.getText().toString().trim());
-                        Float gpa5 = Float.parseFloat(etSem5.getText().toString().trim());
-                        Float gpa6 = Float.parseFloat(etSem6.getText().toString().trim());
-                        Float gpa7 = Float.parseFloat(etSem7.getText().toString().trim());
-                        Float gpa8 = Float.parseFloat(etSem7.getText().toString().trim());
-                        cgpaNum = +gpa1 + gpa2 + gpa3 + gpa4 + gpa5 + gpa6 + gpa7 + gpa8;
-                        btnSaveSecondActivity.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                sharedPreferences = getSharedPreferences("secondToAcademics", MODE_PRIVATE);
-                                editor = getSharedPreferences("secondToAcademics", MODE_PRIVATE).edit();
-                                editor.clear();
-                                editor.apply();
-                                editor.putString("Sem1Value", (String.valueOf(gpa1)));
-                                editor.putString("Sem2Value", (String.valueOf(gpa2)));
-                                editor.putString("Sem3Value", (String.valueOf(gpa3)));
-                                editor.putString("Sem4Value", (String.valueOf(gpa4)));
-                                editor.putString("Sem5Value", (String.valueOf(gpa5)));
-                                editor.putString("Sem6Value", (String.valueOf(gpa6)));
-                                editor.putString("Sem7Value", (String.valueOf(gpa7)));
-                                editor.putString("Sem8Value", (String.valueOf(gpa8)));
-                                Float fillHeight1 = ((gpa1 * 10) / 100) * 92;
-                                Float fillHeight2 = ((gpa2 * 10) / 100) * 92;
-                                Float fillHeight3 = ((gpa3 * 10) / 100) * 92;
-                                Float fillHeight4 = ((gpa4 * 10) / 100) * 92;
-                                Float fillHeight5 = ((gpa5 * 10) / 100) * 92;
-                                Float fillHeight6 = ((gpa6 * 10) / 100) * 92;
-                                Float fillHeight7 = ((gpa7 * 10) / 100) * 92;
-                                Float fillHeight8 = ((gpa8 * 10) / 100) * 92;
-                                Float cgpaFillHeight = (((cgpaNum * 10)) / 100) * 398;
-                                editor.putFloat("Sem1FillValue", fillHeight1);
-                                editor.putFloat("Sem2FillValue", fillHeight2);
-                                editor.putFloat("Sem3FillValue", fillHeight3);
-                                editor.putFloat("Sem4FillValue", fillHeight4);
-                                editor.putFloat("Sem5FillValue", fillHeight5);
-                                editor.putFloat("Sem6FillValue", fillHeight6);
-                                editor.putFloat("Sem7FillValue", fillHeight7);
-                                editor.putFloat("Sem8FillValue", fillHeight8);
-                                editor.putFloat("CGPAValue", cgpaNum);
-                                editor.putFloat("CGPAFillValue", cgpaFillHeight);
-                                editor.apply();
-                                tvToastMessage.setText("Saved to Your Academics");
-                                toast.show();
-
-                            }
-                        });
-                        cgpaNum = cgpaNum / (float) 8;
                     }
                     DecimalFormat df = new DecimalFormat("#.###");
                     String finalCGPA = df.format(cgpaNum);
-                    if (cgpaNum != 0) {
-                        tvCGPA.setVisibility(View.VISIBLE);
-                        tvCGPA.setText(finalCGPA);
-                    }
+                    tvCGPA.setText(finalCGPA);
                 } else {
                     tvToastMessage.setText("Enter your GPA or Find GPA");
                     toast.show();
