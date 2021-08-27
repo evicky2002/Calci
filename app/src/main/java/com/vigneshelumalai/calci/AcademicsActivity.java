@@ -59,16 +59,15 @@ public class AcademicsActivity extends AppCompatActivity {
 
         //Getting Current screen density
         Float resolution = getResources().getDisplayMetrics().density;
-        int res=1;
-        switch (String.valueOf(resolution)){
-            case "1.5": res = res + (1/2);
-            break;
-            case "2.0": res = res + 1;
-            break;
-            case "3.0": res = res + 2;
-            break;
-            case "4.0": res = res + 3;
-            break;
+        int res=0;
+        if(resolution<=1||(resolution>1&&resolution<2)){
+            res=1;
+        }else if(resolution>2&&resolution<3){
+            res=2;
+        }else if(resolution>3&&resolution<4){
+            res=3;
+        }else{
+            res=4;
         }
 
         int fillHeightOne = (int)sharedPreferences.getFloat("Sem1FillValue",0);
