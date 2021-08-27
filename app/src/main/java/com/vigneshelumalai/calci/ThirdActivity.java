@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -33,6 +34,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
     Button btnCalculate;
     int[] credGrad = new int[10];
     Intent intent1 = new Intent();
+    DecimalFormat df = new DecimalFormat("#.###");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,7 +142,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem1");
-                                intent1.putExtra("Sem1GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem1GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -186,7 +188,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem2");
-                                intent1.putExtra("Sem2GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem2GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -233,7 +235,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem3");
-                                intent1.putExtra("Sem3GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem3GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -280,7 +282,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem4");
-                                intent1.putExtra("Sem4GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem4GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -327,7 +329,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem5");
-                                intent1.putExtra("Sem5GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem5GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -376,7 +378,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem6");
-                                intent1.putExtra("Sem6GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem6GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -421,7 +423,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem7");
-                                intent1.putExtra("Sem7GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem7GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -461,7 +463,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem8");
-                                intent1.putExtra("Sem8GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem8GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -513,7 +515,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem1");
-                                intent1.putExtra("Sem1GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem1GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -560,7 +562,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem2");
-                                intent1.putExtra("Sem2GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem2GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -608,7 +610,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem3");
-                                intent1.putExtra("Sem3GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem3GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -655,7 +657,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem4");
-                                intent1.putExtra("Sem4GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem4GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -703,7 +705,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem5");
-                                intent1.putExtra("Sem5GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem5GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -751,7 +753,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem6");
-                                intent1.putExtra("Sem6GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem6GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -798,7 +800,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem7");
-                                intent1.putExtra("Sem7GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem7GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -840,7 +842,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem8");
-                                intent1.putExtra("Sem8GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem8GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -894,7 +896,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem1");
-                                intent1.putExtra("Sem1GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem1GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -941,7 +943,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem2");
-                                intent1.putExtra("Sem2GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem2GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -988,7 +990,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem3");
-                                intent1.putExtra("Sem3GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem3GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1036,7 +1038,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem4");
-                                intent1.putExtra("Sem4GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem4GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1084,7 +1086,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem5");
-                                intent1.putExtra("Sem5GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem5GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1131,7 +1133,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem6");
-                                intent1.putExtra("Sem6GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem6GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1178,7 +1180,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem7");
-                                intent1.putExtra("Sem7GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem7GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1220,7 +1222,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem8");
-                                intent1.putExtra("Sem8GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem8GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1273,7 +1275,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem1");
-                                intent1.putExtra("Sem1GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem1GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1320,7 +1322,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem2");
-                                intent1.putExtra("Sem2GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem2GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1368,7 +1370,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem3");
-                                intent1.putExtra("Sem3GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem3GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1416,7 +1418,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem4");
-                                intent1.putExtra("Sem4GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem4GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1463,7 +1465,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem5");
-                                intent1.putExtra("Sem5GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem5GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1511,7 +1513,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem6");
-                                intent1.putExtra("Sem6GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem6GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1559,7 +1561,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem7");
-                                intent1.putExtra("Sem7GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem7GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
@@ -1601,7 +1603,7 @@ public class ThirdActivity extends AppCompatActivity implements AdapterView.OnIt
                                 Log.i("sum", String.valueOf(totalCredGrad));
                                 Log.i("sum", String.valueOf(totalCredit));
                                 intent1.putExtra("sem", "sem8");
-                                intent1.putExtra("Sem8GPA", String.valueOf(GPA));
+                                intent1.putExtra("Sem8GPA", df.format(GPA));
                                 setResult(reqCode, intent1);
                                 ThirdActivity.this.finish();
 
