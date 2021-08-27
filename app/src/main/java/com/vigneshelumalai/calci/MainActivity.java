@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         Handler handler = new Handler();
         //Getting the current user Object
         FirebaseUser user = mAuth.getCurrentUser();
-        Log.i("TAG","Hi");
+        Log.i("vicky","Hi");
 
         //Runs the runnable after a given specified time
         handler.postDelayed(new Runnable() {
