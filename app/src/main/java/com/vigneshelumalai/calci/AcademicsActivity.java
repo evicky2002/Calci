@@ -62,9 +62,9 @@ public class AcademicsActivity extends AppCompatActivity {
         int res=0;
         if(resolution<=1||(resolution>1&&resolution<2)){
             res=1;
-        }else if(resolution>2&&resolution<3){
+        }else if(resolution>=2&&resolution<3){
             res=2;
-        }else if(resolution>3&&resolution<4){
+        }else if(resolution>=3&&resolution<4){
             res=3;
         }else{
             res=4;
